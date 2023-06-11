@@ -4,12 +4,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MaterialCarouselComponent } from './components/material-carousel/material-carousel.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MaterialCarouselComponent
+    ChatComponent
   ],
   imports: [
     BrowserModule,
