@@ -1,12 +1,12 @@
 <section class="chatbox">
   <div class="chatbox__header">
-    <img class="chatbox__avatar" src="assets/example-avatar.png" alt="Avatar" />
-    <span>{{ chatData?.senderName ?? 'Unknown' }}</span>
+    <img class="chatbox__avatar" ngSrc="assets/example-avatar.png" alt="Avatar" height="350" width="350" priority />
+    <span>{{ data?.senderName ?? 'Unknown' }}</span>
   </div>
   <div class="chatbox__messages">
-    <ng-container *ngFor="let message of chatData?.messages">
+    <ng-container *ngFor="let message of data?.messages">
       <div class="chatbox__message" [ngClass]="{ 'chatbox__message--own': message.sentBy === 'USER' }">
-        <img class="chatbox__avatar" src="assets/example-avatar.png" alt="Avatar" />
+        <img class="chatbox__avatar" ngSrc="assets/example-avatar.png" alt="Avatar" height="350" width="350" priority />
         <div class="chatbox__message-content">{{ message.content }}</div>
       </div>
     </ng-container>
@@ -15,6 +15,8 @@
     <div class="chatbox__message-write">
       <textarea class="chatbox__input-field" placeholder="Type your message..."></textarea>
     </div>
-    <button class="chatbox__message-send"><img src="assets/send-icon.svg" alt="Send" /></button>
+    <button class="chatbox__message-send">
+      <img ngSrc="assets/send-icon.svg" alt="Send" height="48" width="48" priority />
+    </button>
   </div>
 </section>
