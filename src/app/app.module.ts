@@ -5,18 +5,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { NgOptimizedImage } from '@angular/common';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ChatComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule
-  ],
+  declarations: [AppComponent, ChatComponent],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, NgOptimizedImage],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

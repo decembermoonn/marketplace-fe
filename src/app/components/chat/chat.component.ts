@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { DateTime } from "luxon";
+import { DateTime } from 'luxon';
 
 interface Message {
   sentDateTime: DateTime;
@@ -17,8 +17,8 @@ export interface ChatData {
 @Component({
   selector: 'mkt-chat',
   templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.scss']
+  styleUrls: ['./chat.component.scss'],
 })
 export class ChatComponent {
-  @Input('data') chatData?: ChatData;
+  @Input() data?: ChatData;
 }
