@@ -1,17 +1,17 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DateTime } from 'luxon';
+import { FormControl } from '@angular/forms';
 
-interface Message {
+export interface ChatMessage {
   sentDateTime: DateTime;
   sentBy: 'SENDER' | 'USER';
   content: string;
 }
 
-export interface ChatData {
+export interface ChatConfig {
   senderName: string;
   senderAvatar: string;
   userAvatar: string;
-  messages: Message[];
 }
 
 @Component({
@@ -20,5 +20,17 @@ export interface ChatData {
   styleUrls: ['./chat.component.scss'],
 })
 export class ChatComponent {
-  @Input() data?: ChatData;
+  @Input() config?: ChatConfig;
+  @Input() messages: ChatMessage[] = [];
+  @Output() messageSend = new EventEmitter<ChatMessage>();
+  messageControl = new FormControl<string>('', { nonNullable: true });
+
+  sendMessage(): void {
+    this.messageSend.emit({
+      content: this.messageControl.getRawValue(),
+      sentBy: 'USER',
+      sentDateTime: DateTime.now(),
+    });
+    this.messageControl.reset('');
+  }
 }

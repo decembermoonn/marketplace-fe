@@ -1,0 +1,3 @@
+<ul>
+  <li *ngFor="let user of users$ | async" routerLink="chat" [queryParams]="{ rid: user.id }">{{ user.email }}</li>
+</ul>
