@@ -21,6 +21,10 @@ const routes: Routes = [
     canActivate: [authGuard],
   },
   {
+    path: 'playground',
+    loadChildren: () => import('../playground/playground.module').then((m) => m.PlaygroundModule),
+  },
+  {
     path: '**',
     redirectTo: 'chat',
   },

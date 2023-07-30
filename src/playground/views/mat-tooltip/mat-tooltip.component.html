@@ -1,0 +1,24 @@
+<div class="center">
+  <div>
+    <div>
+      position:
+      <select [formControl]="tooltipPosition">
+        <option *ngFor="let option of positionOptions">{{ option }}</option>
+      </select>
+    </div>
+    <button matTooltip="Info about the action" [matTooltipPosition]="tooltipPosition.value">Action1</button>
+  </div>
+  <button matTooltip="Info about the action" matTooltipPositionAtOrigin>Action2</button>
+  <button matTooltip="Info about the action" matTooltipShowDelay="1000" matTooltipHideDelay="500">Action3</button>
+  <div>
+    <button (click)="tooltip.hide()">hide</button>
+    <button (click)="tooltip.show()">show</button>
+    <button (click)="tooltip.toggle()">toggle hide / show</button>
+    <button matTooltip="Info about the action" #tooltip="matTooltip">Action4</button>
+  </div>
+  <div>
+    <input type="checkbox" [formControl]="tooltipDisabled" />
+    <button matTooltip="tooltip" [matTooltipDisabled]="tooltipDisabled.value">Disabled tooltip</button>
+  </div>
+  <button matTooltip="tooltip" matTooltipClass="example-tooltip-uppercase">Tooltip</button>
+</div>
