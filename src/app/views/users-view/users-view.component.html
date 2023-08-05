@@ -1,3 +1,6 @@
-<ul>
-  <li *ngFor="let user of users$ | async" routerLink="chat" [queryParams]="{ rid: user.id }">{{ user.email }}</li>
-</ul>
+<ng-container *ngIf="users$ | async as users">
+  <ul *ngIf="users.length; else noUsersTemplate">
+    <li *ngFor="let user of users" routerLink="chat" [queryParams]="{ rid: user.id }">{{ user.email }}</li>
+  </ul>
+</ng-container>
+<ng-template #noUsersTemplate>Brak użytkowników</ng-template>
